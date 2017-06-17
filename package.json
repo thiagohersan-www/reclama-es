@@ -1,0 +1,23 @@
+{
+  "name": "complain-gg",
+  "version": "0.0.0",
+  "description": "A sample Node.js app using Express and MongoDB",
+  "engines": {
+    "node": "6.9.1"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thiagohersan/"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "dotenv": "^4.0.0",
+    "express": "^4.15.3",
+    "mongodb": "^2.2.28"
+  }
+}
