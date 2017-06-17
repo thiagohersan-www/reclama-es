@@ -6,7 +6,7 @@ var dotenv = require('dotenv');
 dotenv.load();
 
 var ObjectID = mongodb.ObjectID;
-var CONTACTS_COLLECTION = "complaints";
+var MONGO_COLLECTION = "complaints";
 
 var app = express();
 var port = process.env.PORT || 8080;
@@ -39,17 +39,34 @@ function handleError(res, reason, message, code) {
   res.status(code || 500).json({"error": message});
 }
 
-app.get("/c", function(req, res) {
-  res.status(200).json("hahahaha");
+app.get("/api/complain", function(req, res) {
+  db.collection(MONGO_COLLECTION).find({}).toArray(function(err, docs) {
+    if (err) {
+      handleError(res, err.message, "Failed to get complaints.");
+    } else {
+      res.status(200).json(docs);
+    }
+  });
 });
 
-app.post("/c", function(req, res) {
+app.post("/api/complain", function(req, res) {
   var newComplain = req.body;
 
   if (!req.body.name) {
     handleError(res, "Invalid user input", "Must provide a name.", 400);
   } else if(!req.body.complain) {
     handleError(res, "Invalid user input", "Must provide a complaint.", 400);
+  } else {
+    db.collection(MONGO_COLLECTION).insertOne(newComplain, function(err, doc) {
+      if (err) {
+        handleError(res, err.message, "Failed to create new contact.");
+      } else {
+        res.status(201).json(doc.ops[0]);
+      }
+    });
   }
-  res.status(201).json("success");
 });
+
+/* TEST POST:
+$ curl -H "Content-Type: application/json" -d '{"name":"tgh", "complain": "afffffff...."}' http://localhost:8080/api/complain
+*/
