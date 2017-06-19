@@ -1,37 +1,25 @@
-function getJson(url, callback) {
-  if (!url) return;
+function jsonPostGet(options, callback) {
+  if (!options.url) return;
+
+  options.returnStatus = (!options.data) ? 200 : 201;
+  options.method = (!options.data) ? "GET" : "POST";
   var xmlhttp = new XMLHttpRequest();
 
   xmlhttp.onreadystatechange = function() {
     if (xmlhttp.readyState == XMLHttpRequest.DONE) {
-      if (xmlhttp.status == 200) {
+      if (xmlhttp.status == options.returnStatus) {
         callback(xmlhttp.responseText);
       } else {
-        console.log('something else other than 200 was returned');
+        console.log('something other than '+options.returnStatus+' was returned on '+options.method);
       }
     }
   };
 
-  xmlhttp.open("GET", url);
-  xmlhttp.send();
-}
+  xmlhttp.open(options.method, options.url);
 
-function postJson(url, data, callback) {
-  if (!url) return;
-  if (!data) return;
-  var xmlhttp = new XMLHttpRequest();
+  if(options.data) {
+    xmlhttp.setRequestHeader("Content-type", "application/json");
+  }
 
-  xmlhttp.onreadystatechange = function() {
-    if (xmlhttp.readyState == XMLHttpRequest.DONE) {
-      if (xmlhttp.status == 201) {
-        callback(xmlhttp.responseText);
-      } else {
-        console.log('something else other than 201 was returned');
-      }
-    }
-  };
-
-  xmlhttp.open("POST", url);
-  xmlhttp.setRequestHeader("Content-type", "application/json");
-  xmlhttp.send(data);
+  xmlhttp.send(options.data || '');
 }

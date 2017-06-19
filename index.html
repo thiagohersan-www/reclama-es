@@ -21,18 +21,19 @@
     <meta property="og:image" content="imgs/cover.jpg">
 
     <link rel="shortcut icon" type="image/x-icon" href="imgs/favicon.ico">
+
     <script src="js/request-utils.js"></script>
     <script>
       var apiUrl = "https://complain-gg.herokuapp.com/api/complain/";
 
       function testGet() {
-        getJson(apiUrl, console.log);
+        jsonPostGet({url:apiUrl}, console.log);
       }
       function testPost() {
-        var data = {};
-        data.name = document.getElementById('input-name').value;
-        data.complain = document.getElementById('input-complain').value;
-        postJson(apiUrl, JSON.stringify(data), console.log);
+        var formData = {};
+        formData.name = document.getElementById('input-name').value;
+        formData.complain = document.getElementById('input-complain').value;
+        jsonPostGet({url:apiUrl, data:JSON.stringify(formData)}, console.log);
       }
     </script>
   </head>
