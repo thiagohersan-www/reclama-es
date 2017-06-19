@@ -12,7 +12,8 @@ var app = express();
 var port = process.env.PORT || 8080;
 var db;
 
-app.use(bodyParser.json());
+//app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', express.static('.'));
 
 
