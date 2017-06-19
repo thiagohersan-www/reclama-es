@@ -24,11 +24,19 @@
 
     <script src="js/request-utils.js"></script>
     <script>
-      var apiUrl = "https://complain-gg.herokuapp.com/api/complain/";
+      //var apiUrl = "https://complain-gg.herokuapp.com/api/complain/";
+      var apiUrl = "http://localhost:8080/api/complain/";
 
-      function testGet() {
-        jsonPostGet({url:apiUrl}, console.log);
+      function testLatest() {
+        jsonPostGet({url:apiUrl+'latest/'}, console.log);
       }
+
+      function testSince() {
+        var formData = {};
+        formData.since = "59484c4892df750db2397497";
+        jsonPostGet({url:apiUrl+'since/', data:JSON.stringify(formData)}, console.log);
+      }
+
       function testPost() {
         var formData = {};
         formData.name = document.getElementById('input-name').value;
@@ -44,6 +52,7 @@
       Reclamação: <input type="textarea" name="complain" id="input-complain"><br>
       <input type="reset" value="Manda ver" onclick="testPost()">
     </form>
-    <button onclick="testGet()">GET</button>
+    <button onclick="testLatest()">LATEST 20</button>
+    <button onclick="testSince()">SINCE</button>
   </body>
 </html>

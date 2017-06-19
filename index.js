@@ -8,6 +8,7 @@ dotenv.load();
 
 var ObjectID = mongodb.ObjectID;
 var MONGO_COLLECTION = "complaints";
+var LATEST_LIMIT = 20;
 
 var app = express();
 var port = process.env.PORT || 8080;
@@ -42,8 +43,8 @@ function handleError(res, reason, message, code) {
   res.status(code || 500).json({"error": message});
 }
 
-app.get("/api/complain", function(req, res) {
-  db.collection(MONGO_COLLECTION).find({}).toArray(function(err, docs) {
+app.get("/api/complain/latest", function(req, res) {
+  db.collection(MONGO_COLLECTION).find({}).sort({_id: -1}).limit(LATEST_LIMIT).toArray(function(err, docs) {
     if (err) {
       handleError(res, err.message, "Failed to get complaints.");
     } else {
@@ -52,14 +53,30 @@ app.get("/api/complain", function(req, res) {
   });
 });
 
-app.post("/api/complain", function(req, res) {
-  var newComplain = req.body;
+app.post("/api/complain/since", function(req, res) {
+  if(!req.body.since) {
+    handleError(res, "Invalid user input", "Must provide an id.", 400);
+  } else {
+    var sinceId = mongodb.ObjectID(req.body.since);
 
+    db.collection(MONGO_COLLECTION).find({ _id: {$gt: sinceId} }).limit(LATEST_LIMIT).toArray(function(err, docs) {
+      if (err) {
+        handleError(res, err.message, "Failed to get complaints.");
+      } else {
+        res.status(201).json(docs);
+      }
+    });
+  }
+});
+
+app.post("/api/complain", function(req, res) {
   if (!req.body.name) {
     handleError(res, "Invalid user input", "Must provide a name.", 400);
   } else if(!req.body.complain) {
     handleError(res, "Invalid user input", "Must provide a complaint.", 400);
   } else {
+    var newComplain = req.body;
+
     db.collection(MONGO_COLLECTION).insertOne(newComplain, function(err, doc) {
       if (err) {
         handleError(res, err.message, "Failed to create new contact.");
