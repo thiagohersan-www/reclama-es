@@ -32,7 +32,7 @@
 
       function testSince() {
         var formData = {};
-        formData.since = "59484c4892df750db2397497";
+        formData.since = document.getElementById('input-since').value;
         jsonPostGet({url:apiUrl+'since/', data:JSON.stringify(formData)}, console.log);
       }
 
@@ -51,7 +51,8 @@
       Reclamação: <input type="textarea" name="complain" id="input-complain"><br>
       <input type="reset" value="Manda ver" onclick="testPost()">
     </form>
-    <button onclick="testLatest()">LATEST 20</button>
+    <button onclick="testLatest()">LATEST 20</button><br>
     <button onclick="testSince()">SINCE</button>
+    <input type="text" name="since" id="input-since">
   </body>
 </html>
