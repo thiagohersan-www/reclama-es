@@ -21,6 +21,12 @@
     <meta property="og:image" content="imgs/cover.jpg">
 
     <link rel="shortcut icon" type="image/x-icon" href="imgs/favicon.ico">
+    <script src="js/request-utils.js"></script>
+    <script>
+      function test() {
+        getJson("https://complain-gg.herokuapp.com/api/complain/", console.log);
+      }
+    </script>
   </head>
   <body>
     <iframe width="0" height="0" style="border:0;" name="formframe" id="formframe"></iframe>
@@ -30,5 +36,6 @@
       Reclamação: <input type="textarea" name="complain"><br>
       <input type="submit" value="Manda ver">
     </form>
+    <button onclick="test()">Heyy</button>
   </body>
 </html>
