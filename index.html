@@ -23,14 +23,16 @@
     <link rel="shortcut icon" type="image/x-icon" href="imgs/favicon.ico">
     <script src="js/request-utils.js"></script>
     <script>
+      var apiUrl = "https://complain-gg.herokuapp.com/api/complain/";
+
       function testGet() {
-        getJson("https://complain-gg.herokuapp.com/api/complain/", console.log);
+        getJson(apiUrl, console.log);
       }
       function testPost() {
         var data = {};
         data.name = document.getElementById('input-name').value;
         data.complain = document.getElementById('input-complain').value;
-        postJson("http://localhost:8080/api/complain/", JSON.stringify(data), console.log);
+        postJson(apiUrl, JSON.stringify(data), console.log);
       }
     </script>
   </head>
