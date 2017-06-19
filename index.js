@@ -1,4 +1,5 @@
 var express = require("express");
+var cors = require('cors');
 var bodyParser = require("body-parser");
 var mongodb = require("mongodb");
 var dotenv = require('dotenv');
@@ -12,10 +13,20 @@ var app = express();
 var port = process.env.PORT || 8080;
 var db;
 
-//app.use(bodyParser.json());
+var whitelist = [process.env.TEST_ORIGIN, process.env.GH_ORIGIN]
+var corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
+
+app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', express.static('.'));
-
 
 mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
   if (err) {
