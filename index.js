@@ -13,15 +13,8 @@ var app = express();
 var port = process.env.PORT || 8080;
 var db;
 
-var whitelist = [process.env.TEST_ORIGIN, process.env.GH_ORIGIN]
 var corsOptions = {
-  origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback(new Error('Not allowed by CORS'))
-    }
-  }
+  origin: [process.env.TEST_ORIGIN, process.env.GH_ORIGIN]
 }
 
 app.use(cors(corsOptions));
