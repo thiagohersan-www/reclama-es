@@ -23,19 +23,24 @@
     <link rel="shortcut icon" type="image/x-icon" href="imgs/favicon.ico">
     <script src="js/request-utils.js"></script>
     <script>
-      function test() {
+      function testGet() {
         getJson("https://complain-gg.herokuapp.com/api/complain/", console.log);
+      }
+      function testPost() {
+        var data = {};
+        data.name = document.getElementById('input-name').value;
+        data.complain = document.getElementById('input-complain').value;
+        postJson("http://localhost:8080/api/complain/", JSON.stringify(data), console.log);
       }
     </script>
   </head>
   <body>
-    <iframe width="0" height="0" style="border:0;" name="formframe" id="formframe"></iframe>
     <p>Hello GG ready to complain!</p>
-    <form action="https://complain-gg.herokuapp.com/api/complain/" method="post" target="formframe" enctype="application/x-www-form-urlencoded">
-      Nome: <input type="text" name="name"><br>
-      Reclamação: <input type="textarea" name="complain"><br>
-      <input type="submit" value="Manda ver">
+    <form>
+      Nome: <input type="text" name="name" id="input-name"><br>
+      Reclamação: <input type="textarea" name="complain" id="input-complain"><br>
+      <input type="reset" value="Manda ver" onclick="testPost()">
     </form>
-    <button onclick="test()">Heyy</button>
+    <button onclick="testGet()">GET</button>
   </body>
 </html>

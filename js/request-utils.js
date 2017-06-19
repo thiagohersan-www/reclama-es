@@ -32,6 +32,6 @@ function postJson(url, data, callback) {
   };
 
   xmlhttp.open("POST", url);
-  xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xmlhttp.setRequestHeader("Content-type", "application/json");
   xmlhttp.send(data);
 }

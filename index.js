@@ -13,12 +13,10 @@ var app = express();
 var port = process.env.PORT || 8080;
 var db;
 
-var corsOptions = {
+app.use(cors({
   origin: [process.env.TEST_ORIGIN, process.env.GH_ORIGIN]
-}
-
-app.use(cors(corsOptions));
-app.use(bodyParser.urlencoded({ extended: true }));
+}));
+app.use(bodyParser.json());
 app.use('/', express.static('.'));
 
 mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
@@ -73,5 +71,5 @@ app.post("/api/complain", function(req, res) {
 });
 
 /* TEST POST:
-$ curl -H "Content-Type: application/json" -d '{"name":"tgh", "complain": "afffffff...."}' http://localhost:8080/api/complain
+curl -H "Content-Type: application/json" -d '{"name":"tgh", "complain": "afffffff...."}' http://localhost:8080/api/complain
 */
