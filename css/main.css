@@ -1,0 +1,21 @@
+.complaint-name::before {
+  content: "--";
+}
+
+.complaint-name {
+  margin: 0;
+  text-align: right;
+  font-style: italic;
+}
+
+.complaint-complaint {
+  margin: 0;
+}
+
+.complaint-container {
+  width: 25%;
+  margin: 4px 0;
+  padding: 8px;
+  border: 2px solid #444;
+  border-radius: 5px;
+}
