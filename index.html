@@ -32,12 +32,10 @@
     <form>
       Nome: <input type="text" name="name" id="input-name"><br>
       Reclamação: <input type="textarea" name="complaint" id="input-complaint"><br>
-      <input type="reset" value="Manda ver" onclick="testPost()">
+      <input type="reset" value="Manda ver" onclick="postNewComplaint()">
     </form>
 
-    <button onclick="testSince()">SINCE</button>
-
     <div id="complaint-list"></div>
-    <button onclick="testLast()">Mais Reclamações</button><br>
+    <button onclick="getOldComplaints()">Mais Reclamações</button><br>
   </body>
 </html>

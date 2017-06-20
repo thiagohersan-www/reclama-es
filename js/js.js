@@ -1,10 +1,20 @@
 var apiUrl = "https://complain-gg.herokuapp.com/api/complain/";
 //var apiUrl = "http://localhost:8080/api/complain/";
 
+var QUEUE_INTERVAL = 20000;
+var SERVER_INTERVAL = 30000;
+
 var newestId;
 var oldestId;
+var complaintQueue = [];
+var newComplaintsIntervalHandler;
 
-function testLast() {
+window.onload = function() {
+  getOldComplaints();
+  newComplaintsIntervalHandler = setInterval(getNewComplaints, SERVER_INTERVAL);
+};
+
+function getOldComplaints() {
   var formData = {};
   if(oldestId) {
     formData.last = oldestId;
@@ -12,7 +22,8 @@ function testLast() {
   jsonPostGet({url: apiUrl+'last/', data: JSON.stringify(formData)}, populateList);
 }
 
-function testSince() {
+function getNewComplaints() {
+  if(complaintQueue.length > 0) return;
   var formData = {};
   if(newestId) {
     formData.since = newestId;
@@ -20,11 +31,22 @@ function testSince() {
   jsonPostGet({url: apiUrl+'since/', data: JSON.stringify(formData)}, handleNewComplaints);
 }
 
-function testPost() {
+function postNewComplaint() {
   var formData = {};
   formData.name = document.getElementById('input-name').value;
   formData.complaint = document.getElementById('input-complaint').value;
   jsonPostGet({url: apiUrl, data: JSON.stringify(formData)}, handleNewComplaints);
+}
+
+function processQueue() {
+  if(complaintQueue.length < 1) {
+    newComplaintsIntervalHandler = setInterval(getNewComplaints, SERVER_INTERVAL);
+  } else {
+    clearInterval(newComplaintsIntervalHandler);
+    var firstComplaint = complaintQueue.shift();
+    addComplaint(firstComplaint);
+    setTimeout(processQueue, QUEUE_INTERVAL);
+  }
 }
 
 function createComplaintElement(complaint) {
@@ -55,10 +77,13 @@ function handleNewComplaints(complaints) {
   newestId = complaints[complaints.length-1]._id;
   oldestId = oldestId || complaints[0]._id;
 
+  var firstComplaint = complaints.shift();
+  addComplaint(firstComplaint);
+
   for(var i in complaints) {
-    // TODO: push onto queue
+    complaintQueue.push(complaints[i]);
   }
-  addComplaint(complaints[0]);
+  setTimeout(processQueue, QUEUE_INTERVAL);
 }
 
 function populateList(complaints) {
