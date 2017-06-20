@@ -14,15 +14,49 @@ function testLast() {
 
 function testSince() {
   var formData = {};
-  formData.since = document.getElementById('input-since').value;
-  jsonPostGet({url: apiUrl+'since/', data: JSON.stringify(formData)}, console.log);
+  formData.since = newestId;
+  jsonPostGet({url: apiUrl+'since/', data: JSON.stringify(formData)}, handleNewComplaints);
 }
 
 function testPost() {
   var formData = {};
   formData.name = document.getElementById('input-name').value;
   formData.complaint = document.getElementById('input-complaint').value;
-  jsonPostGet({url: apiUrl, data: JSON.stringify(formData)}, console.log);
+  jsonPostGet({url: apiUrl, data: JSON.stringify(formData)}, handleNewComplaints);
+}
+
+function createComplaintElement(complaint) {
+  var nameP = document.createElement('p');
+  var complaintP = document.createElement('p');
+  var complaintDiv = document.createElement('div');
+
+  nameP.innerHTML = complaint.name;
+  complaintP.innerHTML = complaint.complaint;
+
+  nameP.classList.add("complaint-name");
+  complaintP.classList.add("complaint-complaint");
+  complaintDiv.classList.add("complaint-container");
+
+  complaintDiv.appendChild(complaintP);
+  complaintDiv.appendChild(nameP);
+  return complaintDiv;
+}
+
+function addComplaint(complaint) {
+  var complaintElement = createComplaintElement(complaint);
+  var listDiv = document.getElementById('complaint-list');
+  listDiv.insertBefore(complaintElement, listDiv.firstChild);
+}
+
+function handleNewComplaints(complaints) {
+  if(complaints.length < 1) return;
+  newestId = complaints[complaints.length-1]._id;
+  oldestId = oldestId || newestId;
+
+  for(var i in complaints) {
+    // TODO: push onto queue
+  }
+  addComplaint(complaints[0]);
 }
 
 function populateList(complaints) {
@@ -32,20 +66,7 @@ function populateList(complaints) {
 
   var listDiv = document.getElementById('complaint-list');
 
-  for(var i in complaints){
-    var nameP = document.createElement('p');
-    var complaintP = document.createElement('p');
-    var complaintDiv = document.createElement('div');
-
-    nameP.innerHTML = complaints[i].name;
-    complaintP.innerHTML = complaints[i].complain;
-
-    nameP.classList.add("complaint-name");
-    complaintP.classList.add("complaint-complaint");
-    complaintDiv.classList.add("complaint-container");
-    
-    complaintDiv.appendChild(complaintP);
-    complaintDiv.appendChild(nameP);
-    listDiv.appendChild(complaintDiv);
+  for(var i in complaints) {
+    listDiv.appendChild(createComplaintElement(complaints[i]));
   }
 }
