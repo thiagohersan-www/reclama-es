@@ -8,7 +8,7 @@ function jsonPostGet(options, callback) {
   xmlhttp.onreadystatechange = function() {
     if (xmlhttp.readyState == XMLHttpRequest.DONE) {
       if (xmlhttp.status == options.returnStatus) {
-        callback(xmlhttp.responseText);
+        callback(JSON.parse(xmlhttp.responseText));
       } else {
         console.log('something other than '+options.returnStatus+' was returned on '+options.method);
       }
