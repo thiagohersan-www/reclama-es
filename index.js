@@ -72,12 +72,12 @@ app.post("/api/complain/since", function(req, res) {
 app.post("/api/complain", function(req, res) {
   if (!req.body.name) {
     handleError(res, "Invalid user input", "Must provide a name.", 400);
-  } else if(!req.body.complain) {
+  } else if(!req.body.complaint) {
     handleError(res, "Invalid user input", "Must provide a complaint.", 400);
   } else {
-    var newComplain = req.body;
+    var newComplaint = req.body;
 
-    db.collection(MONGO_COLLECTION).insertOne(newComplain, function(err, doc) {
+    db.collection(MONGO_COLLECTION).insertOne(newComplaint, function(err, doc) {
       if (err) {
         handleError(res, err.message, "Failed to create new contact.");
       } else {
@@ -88,5 +88,5 @@ app.post("/api/complain", function(req, res) {
 });
 
 /* TEST POST:
-curl -H "Content-Type: application/json" -d '{"name":"tgh", "complain": "afffffff...."}' http://localhost:8080/api/complain
+curl -H "Content-Type: application/json" -d '{"name":"tgh", "complaint": "afffffff...."}' http://localhost:8080/api/complain
 */
