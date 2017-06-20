@@ -74,7 +74,7 @@ function addComplaint(complaint) {
 
 function handleNewComplaints(complaints) {
   if(complaints.length < 1) return;
-  newestId = complaints[complaints.length-1]._id;
+  newestId = complaints[complaints.length - 1]._id;
   oldestId = oldestId || complaints[0]._id;
 
   var firstComplaint = complaints.shift();
@@ -88,8 +88,8 @@ function handleNewComplaints(complaints) {
 
 function populateList(complaints) {
   if(complaints.length < 1) return;
-  newestId = complaints[0]._id;
-  oldestId = complaints[complaints.length-1]._id;
+  newestId = newestId || complaints[0]._id;
+  oldestId = complaints[complaints.length - 1]._id;
 
   var listDiv = document.getElementById('complaint-list');
 
