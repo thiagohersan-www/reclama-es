@@ -8,7 +8,7 @@ dotenv.load();
 
 var ObjectID = mongodb.ObjectID;
 var MONGO_COLLECTION = "complaints";
-var LATEST_LIMIT = 20;
+var QUERY_LIMIT = 20;
 
 var app = express();
 var port = process.env.PORT || 8080;
@@ -43,12 +43,18 @@ function handleError(res, reason, message, code) {
   res.status(code || 500).json({"error": message});
 }
 
-app.get("/api/complain/latest", function(req, res) {
-  db.collection(MONGO_COLLECTION).find({}).sort({_id: -1}).limit(LATEST_LIMIT).toArray(function(err, docs) {
+app.post("/api/complain/last", function(req, res) {
+  var findObject = {};
+
+  if(req.body.last) {
+    findObject._id = { $lt: mongodb.ObjectID(req.body.last) };
+  }
+
+  db.collection(MONGO_COLLECTION).find(findObject).sort({_id: -1}).limit(QUERY_LIMIT).toArray(function(err, docs) {
     if (err) {
       handleError(res, err.message, "Failed to get complaints.");
     } else {
-      res.status(200).json(docs);
+      res.status(201).json(docs);
     }
   });
 });
@@ -59,7 +65,7 @@ app.post("/api/complain/since", function(req, res) {
   } else {
     var sinceId = mongodb.ObjectID(req.body.since);
 
-    db.collection(MONGO_COLLECTION).find({ _id: {$gt: sinceId} }).limit(LATEST_LIMIT).toArray(function(err, docs) {
+    db.collection(MONGO_COLLECTION).find({ _id: {$gt: sinceId} }).limit(QUERY_LIMIT).toArray(function(err, docs) {
       if (err) {
         handleError(res, err.message, "Failed to get complaints.");
       } else {
