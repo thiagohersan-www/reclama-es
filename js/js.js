@@ -1,7 +1,7 @@
 var apiUrl = "https://complain-gg.herokuapp.com/api/complain/";
 //var apiUrl = "http://localhost:8080/api/complain/";
 
-var newestId = 0;
+var newestId;
 var oldestId;
 
 function testLast() {
@@ -14,7 +14,9 @@ function testLast() {
 
 function testSince() {
   var formData = {};
-  formData.since = newestId;
+  if(newestId) {
+    formData.since = newestId;
+  }
   jsonPostGet({url: apiUrl+'since/', data: JSON.stringify(formData)}, handleNewComplaints);
 }
 
@@ -51,7 +53,7 @@ function addComplaint(complaint) {
 function handleNewComplaints(complaints) {
   if(complaints.length < 1) return;
   newestId = complaints[complaints.length-1]._id;
-  oldestId = oldestId || newestId;
+  oldestId = oldestId || complaints[0]._id;
 
   for(var i in complaints) {
     // TODO: push onto queue
