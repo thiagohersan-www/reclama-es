@@ -60,19 +60,19 @@ app.post("/api/complain/last", function(req, res) {
 });
 
 app.post("/api/complain/since", function(req, res) {
-  if(!req.body.since) {
-    handleError(res, "Invalid user input", "Must provide an id.", 400);
-  } else {
-    var sinceId = mongodb.ObjectID(req.body.since);
+  var findObject = {};
 
-    db.collection(MONGO_COLLECTION).find({ _id: {$gt: sinceId} }).limit(QUERY_LIMIT).toArray(function(err, docs) {
-      if (err) {
-        handleError(res, err.message, "Failed to get complaints.");
-      } else {
-        res.status(201).json(docs);
-      }
-    });
+  if(req.body.since) {
+    findObject._id  = { $gt: mongodb.ObjectID(req.body.since) }
   }
+
+  db.collection(MONGO_COLLECTION).find(findObject).limit(QUERY_LIMIT).toArray(function(err, docs) {
+    if (err) {
+      handleError(res, err.message, "Failed to get complaints.");
+    } else {
+      res.status(201).json(docs);
+    }
+  });
 });
 
 app.post("/api/complain", function(req, res) {
