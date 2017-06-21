@@ -54,7 +54,7 @@ app.post("/api/complain/last", function(req, res) {
     if (err) {
       handleError(res, err.message, "Failed to get complaints.");
     } else {
-      res.status(201).json(docs);
+      res.status(200).json(docs);
     }
   });
 });
@@ -70,7 +70,7 @@ app.post("/api/complain/since", function(req, res) {
     if (err) {
       handleError(res, err.message, "Failed to get complaints.");
     } else {
-      res.status(201).json(docs);
+      res.status(200).json(docs);
     }
   });
 });

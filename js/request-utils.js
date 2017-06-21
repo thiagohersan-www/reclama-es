@@ -1,16 +1,15 @@
 function jsonPostGet(options, callback) {
   if (!options.url) return;
 
-  options.returnStatus = (!options.data) ? 200 : 201;
   options.method = (!options.data) ? "GET" : "POST";
   var xmlhttp = new XMLHttpRequest();
 
   xmlhttp.onreadystatechange = function() {
     if (xmlhttp.readyState == XMLHttpRequest.DONE) {
-      if (xmlhttp.status == options.returnStatus) {
+      if ((xmlhttp.status == 200) || (xmlhttp.status == 201)) {
         callback(JSON.parse(xmlhttp.responseText));
       } else {
-        console.log('something other than '+options.returnStatus+' was returned on '+options.method);
+        console.log('something other than 200 or 201 was returned on '+options.method);
       }
     }
   };
