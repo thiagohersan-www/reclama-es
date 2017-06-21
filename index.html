@@ -30,11 +30,11 @@
     <p>Hello GG ready to complain!</p>
 
     <form>
-      Nome: <input type="text" name="name" id="input-name"><br>
-      Reclamação: <input type="textarea" name="complaint" id="input-complaint"><br>
+      <textarea rows="4" cols="50" placeholder="Escreve sua reclamação aqui" name="complaint" id="input-complaint"></textarea><br>
+      <input type="text" placeholder="Nome" name="name" id="input-name"><br>
       <input type="reset" value="Manda ver" onclick="postNewComplaint()">
     </form>
-
+    <hr>
     <div id="complaint-list"></div>
     <button onclick="getOldComplaints()">Mais Reclamações</button><br>
   </body>
