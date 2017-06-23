@@ -35,6 +35,8 @@ function postNewComplaint() {
   var formData = {};
   formData.name = document.getElementById('input-name').value;
   formData.complaint = document.getElementById('input-complaint').value;
+  // TODO: sanitize name
+  // TODO: check complaint text, send warning if empty
   jsonPostGet({url: apiUrl, data: JSON.stringify(formData)}, handleNewComplaints);
 }
 
