@@ -15,7 +15,7 @@ var port = process.env.PORT || 8080;
 var db;
 
 app.use(cors({
-  origin: [process.env.TEST_ORIGIN, process.env.GH_ORIGIN]
+  origin: [process.env.TEST_ORIGIN, process.env.GH_ORIGIN, process.env.RECLAMACOES_ORIGIN]
 }));
 app.use(bodyParser.json());
 app.use('/', express.static('.'));
