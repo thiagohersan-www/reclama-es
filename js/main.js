@@ -8,11 +8,19 @@ var newestId;
 var oldestId;
 var complaintQueue = [];
 var newComplaintsIntervalHandler;
+var complaintCount;
 
 window.onload = function() {
+  complaintCount = 0;
   getOldComplaints();
   newComplaintsIntervalHandler = setInterval(getNewComplaints, SERVER_INTERVAL);
 };
+
+function randomRange(a, b) {
+  var min = Math.min(a, b);
+  var max = Math.max(a, b);
+  return (max - min) * Math.random() + min;
+}
 
 function getOldComplaints() {
   var formData = {};
@@ -56,9 +64,14 @@ function createComplaintElement(complaint) {
   complaintP.innerHTML = complaint.complaint;
 
   complaintP.classList.add("complaint-text");
+  complaintP.style['font-size'] = Math.max(80-complaint.complaint.length, 32)+"px";
+
   complaintDiv.classList.add("complaint-container");
+  complaintDiv.classList.add("complaint-container-"+((complaintCount%2)?"pink":"yellow"));
+  complaintDiv.style.transform = 'rotate('+randomRange(-10, 10)+'deg)';
 
   complaintDiv.appendChild(complaintP);
+  complaintCount++;
   return complaintDiv;
 }
 
