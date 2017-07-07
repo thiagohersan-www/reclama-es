@@ -76,9 +76,7 @@ app.post("/api/complain/since", function(req, res) {
 });
 
 app.post("/api/complain", function(req, res) {
-  if (!req.body.name) {
-    handleError(res, "Invalid user input", "Must provide a name.", 400);
-  } else if(!req.body.complaint) {
+  if(!req.body.complaint) {
     handleError(res, "Invalid user input", "Must provide a complaint.", 400);
   } else {
     var newComplaint = req.body;

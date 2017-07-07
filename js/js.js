@@ -33,9 +33,7 @@ function getNewComplaints() {
 
 function postNewComplaint() {
   var formData = {};
-  formData.name = document.getElementById('input-name').value;
   formData.complaint = document.getElementById('input-complaint').value;
-  // TODO: sanitize input
   // TODO: check complaint text, set warning if empty
   jsonPostGet({url: apiUrl, data: JSON.stringify(formData)}, handleNewComplaints);
 }
@@ -52,19 +50,15 @@ function processQueue() {
 }
 
 function createComplaintElement(complaint) {
-  var nameP = document.createElement('p');
   var complaintP = document.createElement('p');
   var complaintDiv = document.createElement('div');
 
-  nameP.innerHTML = complaint.name;
   complaintP.innerHTML = complaint.complaint;
 
-  nameP.classList.add("complaint-name");
-  complaintP.classList.add("complaint-complaint");
+  complaintP.classList.add("complaint-text");
   complaintDiv.classList.add("complaint-container");
 
   complaintDiv.appendChild(complaintP);
-  complaintDiv.appendChild(nameP);
   return complaintDiv;
 }
 

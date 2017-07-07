@@ -1,14 +1,4 @@
-.complaint-name::before {
-  content: "--";
-}
-
-.complaint-name {
-  margin: 0;
-  text-align: right;
-  font-style: italic;
-}
-
-.complaint-complaint {
+.complaint-text {
   margin: 0;
 }
 
