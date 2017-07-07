@@ -1,7 +1,6 @@
 var apiUrl = "https://complain-gg.herokuapp.com/api/complain/";
-//var apiUrl = "http://localhost:8080/api/complain/";
 
-var QUEUE_INTERVAL = 20000;
+var QUEUE_INTERVAL = 10000;
 var SERVER_INTERVAL = 30000;
 
 var newestId;
@@ -9,6 +8,7 @@ var oldestId;
 var complaintQueue = [];
 var newComplaintsIntervalHandler;
 var complaintCount;
+var fontFamily = ['Patrick Hand', 'Kalam', 'Shadows Into Light Two'];
 
 window.onload = function() {
   complaintCount = 0;
@@ -65,13 +65,15 @@ function createComplaintElement(complaint) {
 
   complaintP.classList.add("complaint-text");
   complaintP.style['font-size'] = Math.max(80-complaint.complaint.length, 32)+"px";
+  complaintP.style['font-family'] = fontFamily[complaintCount % 3];
 
   complaintDiv.classList.add("complaint-container");
-  complaintDiv.classList.add("complaint-container-"+((complaintCount%2)?"pink":"yellow"));
+  complaintDiv.classList.add("complaint-container-"+((complaintCount % 2)?"pink":"yellow"));
   complaintDiv.style.transform = 'rotate('+randomRange(-10, 10)+'deg)';
 
-  complaintDiv.appendChild(complaintP);
   complaintCount++;
+
+  complaintDiv.appendChild(complaintP);
   return complaintDiv;
 }
 
