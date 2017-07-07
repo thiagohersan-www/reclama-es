@@ -27,9 +27,13 @@
     <script src="js/main.js"></script>
   </head>
   <body>
-    <p>Hello GG ready to complain!</p>
+    <div class="banner-header">
+      <img src="imgs/DdR-banner-desktop.png" class="banner-image">
+      <img src="imgs/DdR-banner-mobile.png" class="banner-image-mobile">
+    </div>
 
-    <form>
+    <div class="vertical-spacer" style="height:200px;"></div>
+    <form class="complaint-form">
       <textarea rows="4" cols="50" placeholder="Escreva aqui sua reclamação" name="complaint" id="input-complaint"></textarea><br>
       <input type="reset" value="Manda ver" onclick="postNewComplaint()">
     </form>

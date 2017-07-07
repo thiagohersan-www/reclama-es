@@ -1,6 +1,36 @@
 body {
-  margin: 0 8px;
+  margin: 0;
   padding: 0;
+}
+
+.banner-header {
+  width: 100%;
+}
+
+.banner-image {
+  display: none;
+  width: 100%;
+}
+
+.banner-image-mobile {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+@media (min-width: 720px) {
+  .banner-image-mobile {
+    display: none;
+  }
+  .banner-image {
+    display: block;
+  }
+}
+
+.complaint-form {
+  display: block;
+  margin: 16px auto;
+  text-align: center;
 }
 
 .complaint-list-container {
