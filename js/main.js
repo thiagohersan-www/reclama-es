@@ -22,6 +22,26 @@ function randomRange(a, b) {
   return (max - min) * Math.random() + min;
 }
 
+function closeLightbox() {
+  var lightbox = document.getElementById('complaint-lightbox');
+  lightbox.style.display = 'none';
+}
+
+function showLightbox(complaint, colorClass, complaintFont) {
+  var lightBox = document.getElementById('complaint-lightbox');
+
+  var highlightElement = document.getElementById('complaint-container-highlight');
+  highlightElement.classList = "";
+  highlightElement.classList.add('complaint-container');
+  highlightElement.classList.add(colorClass);
+
+  var highlightTextElement = highlightElement.getElementsByClassName('complaint-text')[0];
+  highlightTextElement.innerHTML = complaint;
+  highlightTextElement.style['font-family'] = complaintFont;
+
+  lightBox.style.display = 'block';
+}
+
 function getOldComplaints() {
   var formData = {};
   if(oldestId) {
@@ -67,9 +87,15 @@ function createComplaintElement(complaint) {
   complaintP.style['font-size'] = Math.max(80-complaint.complaint.length, 32)+"px";
   complaintP.style['font-family'] = fontFamily[complaintCount % 3];
 
+  var colorClass = "complaint-container-"+((complaintCount % 2)?"pink":"yellow");
   complaintDiv.classList.add("complaint-container");
-  complaintDiv.classList.add("complaint-container-"+((complaintCount % 2)?"pink":"yellow"));
+  complaintDiv.classList.add(colorClass);
   complaintDiv.style.transform = 'rotate('+randomRange(-10, 10)+'deg)';
+  complaintDiv.onclick = (function(text, color, font) {
+    return function() {
+      showLightbox(text, color, font);
+    }
+  })(complaint.complaint, colorClass, fontFamily[complaintCount % 3]);
 
   complaintCount++;
 
