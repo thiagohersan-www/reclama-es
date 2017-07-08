@@ -15,11 +15,11 @@ body {
 }
 .overlay .complaint-container {
   position: relative;
-  margin: 120px auto;
+  margin: 15vh auto;
   width: 70%;
   max-width: none;
-  max-height: none;
-  min-height: 33%;
+  max-height: 66vh;
+  min-height: 33vh;
   overflow: visible;
   cursor: auto;
   box-shadow: 16px 16px 32px 0 #444;
