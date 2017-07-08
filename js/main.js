@@ -139,6 +139,7 @@ function populateList(complaints) {
   oldestId = complaints[complaints.length - 1]._id;
 
   var listDiv = document.getElementById('complaint-list');
+  document.getElementById('complaints-loader-spinner').style.display = 'none';
 
   for(var i in complaints) {
     listDiv.appendChild(createComplaintElement(complaints[i]));
