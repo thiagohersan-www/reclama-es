@@ -66,6 +66,27 @@ body {
   }
 }
 
+.share-container {
+  position: fixed;
+  width: 50px;
+  left: 0;
+  top: 128px;
+  z-index: 400;
+
+  background-color: rgba(0,0,0,0);
+  padding: 0 8px;
+}
+.share-container a {
+  display: block;
+}
+.share-container a+a {
+  margin-top: 16px;
+}
+.share-container img {
+  display: block;
+  width: 100%;
+}
+
 .complaint-form {
   display: block;
   margin: 16px auto;
