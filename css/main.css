@@ -71,11 +71,12 @@ body {
   position: fixed;
   width: 50px;
   left: 0;
-  top: 128px;
+  top: -128px;
   z-index: 400;
 
   background-color: rgba(0,0,0,0);
   padding: 0 8px;
+  transition: top 0.5s linear;
 }
 .share-container a {
   display: block;
@@ -122,9 +123,8 @@ body {
   }
 }
 
-.complaint-form {
-  display: block;
-  margin: 16px auto;
+.center-form {
+  margin: 16px 0;
   text-align: center;
 }
 

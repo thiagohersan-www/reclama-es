@@ -16,6 +16,16 @@ window.onload = function() {
   newComplaintsIntervalHandler = setInterval(getNewComplaints, SERVER_INTERVAL);
 };
 
+window.onscroll = function() {
+  var introTextYLocation = document.getElementById('complaint-form').offsetTop - 256;
+
+  if(window.pageYOffset > introTextYLocation) {
+    document.getElementById('desktop-share-container').style.top = '128px';
+  } else {
+    document.getElementById('desktop-share-container').style.top = '-128px';
+  }
+}
+
 function randomRange(a, b) {
   var min = Math.min(a, b);
   var max = Math.max(a, b);
