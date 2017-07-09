@@ -30,6 +30,8 @@ body {
   right: -8px;
   padding: 8px 12px;
   border-radius: 20px;
+  font-family: 'Patrick Hand';
+  font-weight: 900;
 }
 
 .button {
