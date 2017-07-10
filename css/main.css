@@ -27,12 +27,10 @@ body {
 .overlay .close-button {
   position: absolute;
   font-size: 24px;
-  top: -10px;
-  right: -8px;
-  padding: 8px 12px;
-  border-radius: 20px;
-  font-family: 'Patrick Hand';
-  font-weight: 900;
+  top: -12px;
+  right: -10px;
+  padding: 8px 14px;
+  border-radius: 50%;
 }
 
 .button {
