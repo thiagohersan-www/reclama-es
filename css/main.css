@@ -24,23 +24,23 @@ body {
   cursor: auto;
   box-shadow: 16px 16px 32px 0 #444;
 }
+
 .overlay .close-button {
   position: absolute;
-  font-size: 24px;
-  top: -12px;
-  right: -10px;
-  padding: 8px 14px;
-  border-radius: 50%;
+  font-size: 32px;
+  top: 0;
+  right: 4px;
+  padding: 0;
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .button {
   cursor: pointer;
   color: #000;
-  background-color: aqua;
-  transition: background-color 0.1s linear;
+  transition: color 0.1s linear;
 }
 .button:hover {
-  background-color: #f0f0f0;
+  color: #e0e0e0;
 }
 
 .banner-header {

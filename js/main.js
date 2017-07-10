@@ -45,11 +45,6 @@ function showLightbox(complaint, colorClass, complaintFont) {
   highlightElement.classList.add('complaint-container');
   highlightElement.classList.add(colorClass);
 
-  var highlightCloseButton = document.getElementById('highlight-close-button');
-  var buttonColorClass = (colorClass.indexOf('pink') != -1) ? colorClass.replace('pink', 'yellow') : colorClass.replace('yellow', 'pink');
-  highlightCloseButton.classList.remove(colorClass);
-  highlightCloseButton.classList.add(buttonColorClass);
-
   var highlightTextElement = highlightElement.getElementsByClassName('complaint-text')[0];
   highlightTextElement.innerHTML = complaint;
   highlightTextElement.style['font-family'] = complaintFont;
