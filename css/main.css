@@ -181,11 +181,11 @@ body {
   }
 }
 
-.complaint-container-black {
+.complaint-container-primary {
   color: #fff;
   background-image: url('/imgs/container-banner-black.png');
 }
-.complaint-container-red {
+.complaint-container-secondary {
   color: #222;
   background-image: url('/imgs/container-banner-red.png');
 }
