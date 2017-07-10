@@ -97,7 +97,7 @@ function createComplaintElement(complaint) {
   complaintP.style['font-size'] = Math.max(80-complaint.complaint.length, 32)+"px";
   complaintP.style['font-family'] = fontFamily[complaintCount % 3];
 
-  var colorClass = "complaint-container-"+((complaintCount % 2)?"pink":"yellow");
+  var colorClass = "complaint-container-"+((complaintCount % 2)?"black":"red");
   complaintDiv.classList.add("complaint-container");
   complaintDiv.classList.add(colorClass);
   complaintDiv.style.transform = 'rotate('+randomRange(-10, 10)+'deg)';
