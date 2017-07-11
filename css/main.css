@@ -35,11 +35,11 @@ body {
 
 .button {
   cursor: pointer;
-  color: #fff;
+  color: #222;
   transition: color 0.1s linear;
 }
 .button:hover {
-  color: #e0e0e0;
+  color: #aaa;
 }
 
 .banner-header {
