@@ -181,11 +181,27 @@ body {
   }
 }
 
-.complaint-container-primary {
+.complaint-container-color-0 {
   color: #f4dd51;
   background-image: url('/imgs/container-banner-pink.png');
 }
-.complaint-container-secondary {
+.complaint-container-color-1 {
+  color: #c83b89;
+  background-image: url('/imgs/container-banner-black.png');
+}
+.complaint-container-color-2 {
   color: #222;
+  background-image: url('/imgs/container-banner-yellow.png');
+}
+.complaint-container-color-3 {
+  color: #f4dd51;
+  background-image: url('/imgs/container-banner-black.png');
+}
+.complaint-container-color-4 {
+  color: #222;
+  background-image: url('/imgs/container-banner-pink.png');
+}
+.complaint-container-color-5 {
+  color: #c83b89;
   background-image: url('/imgs/container-banner-yellow.png');
 }
