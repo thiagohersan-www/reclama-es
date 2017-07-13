@@ -66,12 +66,12 @@
 
     <form id="complaint-form" class="center-form">
       <textarea placeholder="Escreva aqui sua reclamação" name="complaint" id="input-complaint" class="form-textArea"></textarea><br>
-      <input type="reset" value="Manda ver" onclick="postNewComplaint()">
+      <input type="reset" value="Manda ver" onclick="postNewComplaint()" class="button-style">
     </form>
     <hr>
     <div id="complaint-list" class="complaint-list-container">
       <img id="complaints-loader-spinner" class="loader-spinner" src="imgs/loader.png">
     </div>
-    <button onclick="getOldComplaints()" style="margin: 50px auto 100px; display: block;">Mais Reclamações</button><br>
+    <button onclick="getOldComplaints()" style="margin: 50px auto 100px; display: block;" class="button-style">Mais Reclamações</button><br>
   </body>
 </html>
