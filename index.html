@@ -30,8 +30,8 @@
     <script src="js/main.js"></script>
   </head>
   <body>
-    <div id="complaint-lightbox" class="overlay">
-      <div id="complaint-container-highlight" class="complaint-container">
+    <div id="complaint-lightbox" class="overlay" onclick="closeLightbox()">
+      <div id="complaint-container-highlight" class="complaint-container" onclick="doNothing()">
         <p class="complaint-text"></p>
         <div id="highlight-close-button" class="close-button button" onclick="closeLightbox()">✖</div>
       </div>

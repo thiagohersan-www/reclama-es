@@ -32,6 +32,10 @@ function randomRange(a, b) {
   return (max - min) * Math.random() + min;
 }
 
+function doNothing() {
+  event.stopPropagation();
+}
+
 function closeLightbox() {
   var lightbox = document.getElementById('complaint-lightbox');
   lightbox.style.display = 'none';
