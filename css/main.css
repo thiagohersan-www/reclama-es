@@ -39,7 +39,7 @@ body {
 
 .button {
   cursor: pointer;
-  color: #222;
+  color: #fff;
   transition: color 0.1s linear;
 }
 .button:hover {
@@ -140,7 +140,7 @@ body {
 }
 
 .button-style {
-  margin-top: 10px;
+  margin-top: 5vw;
   font: 500 5rem 'Patrick Hand';
   box-shadow: 5px 5px 5px #888888;
   background-color: #C83B89;
@@ -166,7 +166,6 @@ body {
     background-color: #C83B89;
     color: #F4DD51;
   }
-
 }
 
 .complaint-list-container {
@@ -213,6 +212,11 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100% 100%;
+}
+
+#complaint-container-highlight {
+  padding: 24px;
+  padding-top: 18px;
 }
 
 @media (min-width: 720px) {
