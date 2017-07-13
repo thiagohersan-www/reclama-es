@@ -132,6 +132,13 @@ body {
   text-align: center;
 }
 
+.form-textArea {
+  font: 400 1.5rem 'Patrick Hand';
+  width: 55vw;
+  height: 100px;
+  padding: 1rem;
+}
+
 .complaint-list-container {
   display: flex;
   flex-direction: row;
