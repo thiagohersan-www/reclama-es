@@ -133,16 +133,40 @@ body {
 }
 
 .form-textArea {
-  font: 400 2rem 'Patrick Hand';
-  width: 55vw;
-  height: 100px;
+  font: 500 3rem 'Patrick Hand';
+  width: 80vw;
+  height: 150px;
   padding: 1rem;
 }
 
 .button-style {
-  font: 400 2rem 'Patrick Hand';
+  margin-top: 5vw;
+  font: 500 3rem 'Patrick Hand';
   box-shadow: 5px 5px 5px #888888;
-  background-color: #ffff;
+  background-color: #C83B89;
+  color: #F4DD51;
+}
+
+.button-style:hover {
+  background-color: #F4DD51;
+  color: #C83B89;
+}
+
+@media (min-width: 720px) {
+  .form-textArea {
+    font: 400 2rem 'Patrick Hand';
+    width: 55vw;
+    height: 100px;
+    padding: 1rem;
+  }
+
+  .button-style {
+    font: 500 2rem 'Patrick Hand';
+    box-shadow: 5px 5px 5px #888888;
+    background-color: #C83B89;
+    color: #F4DD51;
+  }
+
 }
 
 .complaint-list-container {
