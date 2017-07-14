@@ -4,7 +4,13 @@ html {
 
 body {
   margin: 0;
+  margin-bottom: 100px;
   padding: 0;
+}
+@media (min-width: 720px) {
+  body {
+    margin-bottom: 0;
+  }
 }
 
 .overlay {
@@ -204,6 +210,8 @@ body {
 }
 
 .button-style {
+  display: block;
+  margin: 0 auto;
   margin-top: 3vw;
   font: 500 2.5rem 'Patrick Hand';
   box-shadow: 4px 4px 5px #888;
@@ -306,4 +314,17 @@ body {
 .complaint-container-color-3 {
   color: #c83b89;
   background-image: url('/imgs/container-banner-black.png');
+}
+
+.footer {
+  margin-top: 3vw;
+  padding: 12px;
+  height: 100px;
+  background-color: #eee;
+  font: 500 1.5rem 'Roboto';
+  color: #000;
+}
+
+.footer p {
+  margin: 0;
 }
