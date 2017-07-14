@@ -133,9 +133,9 @@ body {
 }
 
 .form-textArea {
-  font: 500 5rem 'Patrick Hand';
+  font: 500 4rem 'Patrick Hand';
   width: 80vw;
-  height: 150px;
+  height: 300px;
   padding: 1rem;
 }
 
@@ -143,13 +143,12 @@ body {
   margin-top: 5vw;
   font: 500 5rem 'Patrick Hand';
   box-shadow: 5px 5px 5px #888888;
-  background-color: #C83B89;
-  color: #F4DD51;
+  background-color: #EEEEEE;
 }
 
 .button-style:hover {
-  background-color: #F4DD51;
-  color: #C83B89;
+  background-color: #B0B7BB;
+  color: #272A2B;
 }
 
 @media (min-width: 720px) {
