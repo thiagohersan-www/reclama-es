@@ -133,15 +133,15 @@ body {
 }
 
 .form-textArea {
-  font: 500 4rem 'Patrick Hand';
+  font: 500 2.5rem 'Patrick Hand';
   width: 80vw;
-  height: 300px;
+  height: 200px;
   padding: 1rem;
 }
 
 .button-style {
   margin-top: 5vw;
-  font: 500 5rem 'Patrick Hand';
+  font: 500 2.5rem 'Patrick Hand';
   box-shadow: 5px 5px 5px #888888;
   background-color: #EEEEEE;
 }
