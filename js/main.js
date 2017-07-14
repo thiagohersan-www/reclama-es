@@ -52,7 +52,7 @@ function showLightbox(complaint, colorClass, complaintFont) {
   var highlightTextElement = highlightElement.getElementsByClassName('complaint-text')[0];
   highlightTextElement.innerHTML = complaint;
   highlightTextElement.style['font-family'] = complaintFont;
-  highlightTextElement.style['font-size'] = Math.max((120-complaint.length)/14, 3.3)+"rem";
+  highlightTextElement.style['font-size'] = Math.max((100-complaint.length)/14, 3.3)+"em";
 
   lightBox.style.display = 'block';
 }
@@ -101,7 +101,7 @@ function createComplaintElement(complaint) {
   complaintP.innerHTML = complaint.complaint;
 
   complaintP.classList.add("complaint-text");
-  complaintP.style['font-size'] = Math.max((80-complaint.complaint.length)/14, 2.3)+"rem";
+  complaintP.style['font-size'] = Math.max((80-complaint.complaint.length)/14, 2.3)+"em";
   complaintP.style['font-family'] = fontFamily[complaintCount % 3];
 
   var colorClass = "complaint-container-color-"+(complaintCount % 4);
