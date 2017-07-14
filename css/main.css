@@ -214,11 +214,12 @@ body {
   display: block;
   margin: 0 auto;
   margin-top: 3vw;
-  font: 500 2.5rem 'Patrick Hand';
+  border-radius: 4px;
+  font: 500 2rem 'Patrick Hand';
   box-shadow: 4px 4px 5px #888;
   background-color: #eee;
   cursor: pointer;
-  transition: box-shadow 0.1s linear, background-color 0.1s linear;
+  transition: box-shadow 0.1s linear, color 0.1s linear;
 }
 
 .button-style:hover {
@@ -232,12 +233,6 @@ body {
     width: 55vw;
     height: 100px;
     padding: 1rem;
-  }
-
-  .button-style {
-    font: 500 2rem 'Patrick Hand';
-    box-shadow: 5px 5px 5px #888;
-    background-color: #eee;
   }
 }
 
@@ -326,7 +321,7 @@ body {
 }
 
 .footer {
-  margin-top: 3vw;
+  margin-top: 50px;
   padding: 12px;
   height: 100px;
   background-color: #eee;
