@@ -70,6 +70,16 @@ body {
   }
 }
 
+.video-wrapper-wrapper {
+  width: 100%;
+  margin: 0 auto;
+}
+@media (min-width: 720px) {
+  .video-wrapper-wrapper {
+    width: 96%;
+  }
+}
+
 .video-wrapper-16x9 {
   padding-bottom: 56.25%;
 }
