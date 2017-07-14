@@ -194,18 +194,18 @@ body {
 }
 
 .button-style {
-  margin-top: 5vw;
+  margin-top: 3vw;
   font: 500 2.5rem 'Patrick Hand';
-  box-shadow: 4px 4px 5px #888888;
-  background-color: #EEEEEE;
+  box-shadow: 4px 4px 5px #888;
+  background-color: #eee;
   cursor: pointer;
   transition: box-shadow 0.1s linear, background-color 0.1s linear;
 }
 
 .button-style:hover {
-  background-color: #B0B7BB;
-  color: #272A2B;
-  box-shadow: 7px 7px 5px #888888;
+  /*background-color: #B0B7BB;*/
+  color: #777;
+  box-shadow: 7px 7px 5px #888;
 }
 
 @media (min-width: 720px) {
@@ -218,8 +218,8 @@ body {
 
   .button-style {
     font: 500 2rem 'Patrick Hand';
-    box-shadow: 5px 5px 5px #888888;
-    background-color: #EEEEEE;
+    box-shadow: 5px 5px 5px #888;
+    background-color: #eee;
   }
 }
 
