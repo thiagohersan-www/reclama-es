@@ -77,8 +77,10 @@ function getNewComplaints() {
 function postNewComplaint() {
   var formData = {};
   formData.complaint = document.getElementById('input-complaint').value;
-  // TODO: check complaint text, set warning if empty
-  jsonPostGet({url: apiUrl, data: JSON.stringify(formData)}, handleNewComplaints);
+
+  if(formData.complaint.replace(/ /g, '') != '') {
+    jsonPostGet({url: apiUrl, data: JSON.stringify(formData)}, handleNewComplaints);
+  }
 }
 
 function processQueue() {
