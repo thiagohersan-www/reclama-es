@@ -52,7 +52,7 @@ function showLightbox(complaint, colorClass, complaintFont) {
   var highlightTextElement = highlightElement.getElementsByClassName('complaint-text')[0];
   highlightTextElement.innerHTML = complaint;
   highlightTextElement.style['font-family'] = complaintFont;
-  highlightTextElement.style['font-size'] = Math.max((80-complaint.length)/14, 2.3)+"rem";
+  highlightTextElement.style['font-size'] = Math.max((120-complaint.length)/14, 3.3)+"rem";
 
   lightBox.style.display = 'block';
 }

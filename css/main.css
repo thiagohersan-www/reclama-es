@@ -1,5 +1,10 @@
 html {
-  font-size: 14px;
+  font-size: 12px;
+}
+@media (min-width: 720px) {
+  html {
+    font-size: 14px;
+  }
 }
 
 body {
@@ -221,7 +226,6 @@ body {
 }
 
 .button-style:hover {
-  /*background-color: #B0B7BB;*/
   color: #777;
   box-shadow: 7px 7px 5px #888;
 }
@@ -268,12 +272,15 @@ body {
 }
 
 .complaint-text {
+  display: table-cell;
   margin: 0;
   text-align: center;
+  vertical-align: middle;
   font: 900 80px/1 'Patrick Hand';
 }
 
 .complaint-container {
+  display: table;
   max-width: 100%;
   min-height: 128px;
   max-height: 200px;
