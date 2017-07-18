@@ -322,10 +322,15 @@ body {
 
 .footer {
   margin-top: 50px;
-  padding: 12px;
+  padding: 12px 4px;
   background-color: #eee;
   font: 500 1.5rem 'Roboto';
   color: #000;
+}
+@media (min-width: 720px) {
+  .footer {
+    padding: 12px;
+  }
 }
 
 .footer p {
@@ -338,4 +343,36 @@ body {
 
 .footer a {
   text-decoration: none;
+}
+
+.footer-logo-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logo-and-text {
+  text-align: center;
+  font-size: 14px;
+}
+
+.logo-and-text+.logo-and-text {
+  margin-left: 0;
+  margin-top: 32px;
+}
+
+@media (min-width: 720px) {
+  .footer-logo-container {
+    flex-direction: row;
+  }
+
+  .logo-and-text+.logo-and-text {
+    margin-left: 8vw;
+    margin-top: 0;
+  }
+
+  .logo-and-text {
+    text-align: left;
+    font-size: 18px;
+  }
 }
