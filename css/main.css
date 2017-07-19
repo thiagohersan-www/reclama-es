@@ -29,7 +29,7 @@ body {
   margin: 15vh auto;
   width: 70%;
   max-width: none;
-  max-height: 66vh;
+  max-height: 70vh;
   min-height: 33vh;
   overflow: visible;
   cursor: auto;
@@ -109,14 +109,13 @@ body {
 .intro-text {
   margin: 1rem auto;
   width: 85vw;
-  padding: 0 1vw;
+  padding: 0;
 }
 .intro-text p {
   text-align: justify;
   font: 500 1.5rem 'Roboto';
 }
 .intro-text a {
-  margin-top: 1vw;
   text-align: left;
   text-decoration: underline;
   text-transform: uppercase;
@@ -131,7 +130,6 @@ body {
 @media (min-width: 720px) {
   .intro-text {
     max-width: 60vw;
-    padding: 0;
   }
   .intro-text p {
     font: 500 1.5rem/1.5 'Roboto';
@@ -210,6 +208,15 @@ body {
   padding: 1rem;
 }
 
+@media (min-width: 720px) {
+  .form-textArea {
+    font: 400 2rem 'Patrick Hand';
+    width: 55vw;
+    height: 100px;
+    padding: 1rem;
+  }
+}
+
 .button-style {
   display: block;
   margin: 0 auto;
@@ -225,15 +232,6 @@ body {
 .button-style:hover {
   color: #777;
   box-shadow: 7px 7px 5px #888;
-}
-
-@media (min-width: 720px) {
-  .form-textArea {
-    font: 400 2rem 'Patrick Hand';
-    width: 55vw;
-    height: 100px;
-    padding: 1rem;
-  }
 }
 
 .complaint-list-container {
@@ -348,9 +346,7 @@ body {
 }
 
 .footer-logo-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  text-align: center;
 }
 
 .logo-and-text {
@@ -364,17 +360,17 @@ body {
 }
 
 @media (min-width: 720px) {
-  .footer-logo-container {
-    flex-direction: row;
-  }
-
   .logo-and-text+.logo-and-text {
-    margin-left: 6vw;
+    margin-left: 64px;
     margin-top: 0;
   }
 
   .logo-and-text {
-    text-align: right;
+    display: inline;
     font-size: 18px;
+  }
+
+  .logo-and-text p {
+    margin-top: 24px;
   }
 }
