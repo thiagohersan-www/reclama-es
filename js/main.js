@@ -140,15 +140,24 @@ function handleNewComplaints(complaints) {
   setTimeout(processQueue, QUEUE_INTERVAL);
 }
 
+function populateByOne(complaints, i) {
+  return function() {
+    var listDiv = document.getElementById('complaint-list');
+    listDiv.appendChild(createComplaintElement(complaints[i]));
+
+    if(++i < complaints.length) {
+      setTimeout(populateByOne(complaints, i), 100);
+    } else {
+      document.getElementById('complaints-loader-spinner').style.display = 'none';
+    }
+  }
+}
+
 function populateList(complaints) {
   if(complaints.length < 1) return;
   newestId = newestId || complaints[0]._id;
   oldestId = complaints[complaints.length - 1]._id;
 
-  var listDiv = document.getElementById('complaint-list');
-  document.getElementById('complaints-loader-spinner').style.display = 'none';
-
-  for(var i in complaints) {
-    listDiv.appendChild(createComplaintElement(complaints[i]));
-  }
+  document.getElementById('complaints-loader-spinner').style.display = 'block';
+  setTimeout(populateByOne(complaints, 0), 50);
 }

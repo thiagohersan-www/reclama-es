@@ -252,6 +252,7 @@ body {
 
 .loader-spinner {
   display: block;
+  margin: 0 auto;
   width: 20%;
   max-width: 100px;
   min-width: 64px;
