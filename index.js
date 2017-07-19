@@ -8,7 +8,7 @@ dotenv.load();
 
 var ObjectID = mongodb.ObjectID;
 var MONGO_COLLECTION = "complaints";
-var QUERY_LIMIT = 20;
+var QUERY_LIMIT = 19;
 
 var app = express();
 var port = process.env.PORT || 8080;
