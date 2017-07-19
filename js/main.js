@@ -117,6 +117,7 @@ function createComplaintElement(complaint) {
   complaintCount++;
 
   complaintDiv.appendChild(complaintP);
+  complaintDiv.style.opacity = '0';
   return complaintDiv;
 }
 
@@ -124,6 +125,7 @@ function addComplaint(complaint) {
   var complaintElement = createComplaintElement(complaint);
   var listDiv = document.getElementById('complaint-list');
   listDiv.insertBefore(complaintElement, listDiv.firstChild);
+  setOpacity(complaintElement, '1', 100);
 }
 
 function handleNewComplaints(complaints) {
@@ -140,17 +142,10 @@ function handleNewComplaints(complaints) {
   setTimeout(processQueue, QUEUE_INTERVAL);
 }
 
-function populateByOne(complaints, i) {
-  return function() {
-    var listDiv = document.getElementById('complaint-list');
-    listDiv.appendChild(createComplaintElement(complaints[i]));
-
-    if(++i < complaints.length) {
-      setTimeout(populateByOne(complaints, i), 100);
-    } else {
-      document.getElementById('complaints-loader-spinner').style.display = 'none';
-    }
-  }
+function setOpacity(element, opacity, delay) {
+  setTimeout(function() {
+    element.style.opacity = opacity;
+  }, delay);
 }
 
 function populateList(complaints) {
@@ -159,5 +154,12 @@ function populateList(complaints) {
   oldestId = complaints[complaints.length - 1]._id;
 
   document.getElementById('complaints-loader-spinner').style.display = 'block';
-  setTimeout(populateByOne(complaints, 0), 50);
+  var listDiv = document.getElementById('complaint-list');
+
+  for(var i in complaints) {
+    var newElement = createComplaintElement(complaints[i]);
+    listDiv.appendChild(newElement);
+    setOpacity(newElement, '1', 100*i);
+  }
+  document.getElementById('complaints-loader-spinner').style.display = 'none';
 }

@@ -285,6 +285,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100% 100%;
+  transition: opacity 0.5s linear;
 }
 @media (min-width: 720px) {
   .complaint-container {
