@@ -115,13 +115,13 @@ body {
 }
 .intro-text p {
   text-align: justify;
-  font: 500 1.5rem 'Roboto';
+  font: 500 1.4rem 'Roboto';
 }
 .intro-text a {
   text-align: left;
   text-decoration: underline;
   text-transform: uppercase;
-  font: 500 1.1rem 'Roboto';
+  font: 500 1.4rem 'Roboto';
   color: #c83b89;
   -webkit-transition: color 0.1s linear;
   -o-transition: color 0.1s linear;
