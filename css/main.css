@@ -20,8 +20,11 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(255,255,255, 0.8);
+  background-color: rgba(0,0,0, 0.5);
   z-index: 1000;
+  -webkit-transition: opacity 0.15s linear;
+  -o-transition: opacity 0.15s linear;
+  transition: opacity 0.15s linear;
 }
 
 .overlay .complaint-container {
@@ -38,21 +41,18 @@ body {
 .overlay .close-button {
   position: absolute;
   font-size: 2.2rem;
-  top: 10px;
-  right: 20px;
+  top: 0;
+  right: 0;
   padding: 0;
-  background-color: rgba(0, 0, 0, 0);
-}
-
-.button {
-  cursor: pointer;
   color: #fff;
+  background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
   -webkit-transition: color 0.1s linear;
   -o-transition: color 0.1s linear;
   transition: color 0.1s linear;
 }
-.button:hover {
-  color: #aaa;
+.overlay .close-button:hover {
+  color: #ccc;
 }
 
 .banner-header {

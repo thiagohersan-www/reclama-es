@@ -38,7 +38,11 @@ function doNothing() {
 
 function closeLightbox() {
   var lightbox = document.getElementById('complaint-lightbox');
-  lightbox.style.display = 'none';
+  lightbox.style.opacity = '0';
+  setTimeout(function() {
+    var lightbox = document.getElementById('complaint-lightbox');
+    lightbox.style.display = 'none';
+  }, 500);
 }
 
 function showLightbox(complaint, colorClass, complaintFont) {
@@ -55,6 +59,10 @@ function showLightbox(complaint, colorClass, complaintFont) {
   highlightTextElement.style['font-size'] = Math.max((100-complaint.length)/14, 3.3)+"em";
 
   lightBox.style.display = 'block';
+  setTimeout(function() {
+    var lightbox = document.getElementById('complaint-lightbox');
+    lightBox.style.opacity = '1';
+  }, 1);
 }
 
 function getOldComplaints() {
