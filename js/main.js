@@ -38,7 +38,7 @@ function textToPortuguese() {
   document.getElementById('language-button-en').classList.add('language-button-clean');
   document.getElementById('input-complaint').setAttribute('placeholder', 'Escreva aqui sua reclamação');
   document.getElementById('send-button').setAttribute('value', 'enviar');
-  document.getElementById('load-button').innerHTML = 'value', 'mais reclamações';
+  document.getElementById('load-button').innerHTML = 'mais reclamações';
 }
 
 window.onscroll = function() {
