@@ -26,6 +26,9 @@ function textToEnglish() {
   document.getElementById('language-button-en').classList.add('language-button-selected');
   document.getElementById('language-button-pt').classList.remove('language-button-selected');
   document.getElementById('language-button-pt').classList.add('language-button-clean');
+  document.getElementById('input-complaint').setAttribute('placeholder', 'Complain here');
+  document.getElementById('send-button').setAttribute('value', 'send');
+  document.getElementById('load-button').innerHTML = 'more complaints';
 }
 function textToPortuguese() {
   document.getElementById('intro-text').innerHTML = TEXT_PT;
@@ -33,6 +36,9 @@ function textToPortuguese() {
   document.getElementById('language-button-pt').classList.add('language-button-selected');
   document.getElementById('language-button-en').classList.remove('language-button-selected');
   document.getElementById('language-button-en').classList.add('language-button-clean');
+  document.getElementById('input-complaint').setAttribute('placeholder', 'Escreva aqui sua reclamação');
+  document.getElementById('send-button').setAttribute('value', 'enviar');
+  document.getElementById('load-button').innerHTML = 'value', 'mais reclamações';
 }
 
 window.onscroll = function() {
