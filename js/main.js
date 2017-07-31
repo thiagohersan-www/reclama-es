@@ -10,11 +10,30 @@ var newComplaintsIntervalHandler;
 var complaintCount;
 var fontFamily = ['Patrick Hand', 'Kalam', 'Shadows Into Light Two'];
 
+var TEXT_PT = '<span style="font-style:italic;">Complaints Department</span> [Departamento de reclamações] (2016 - ) é um projeto colaborativo das <a href="http://www.guerrillagirls.com/" target="_blank">Guerrilla Girls</a>. Inicialmente realizado na Tate Modern, em Londres, ele agora ganhou uma nova versão para a segunda <a href="http://frestas.sescsp.org.br/" target="_blank">Frestas - Trienal de Artes</a>. Fique à vontade para expressar aqui suas queixas, incômodos e críticas. A partir de 12 de agosto a obra também pode ser acessada no Centro de convivência do Sesc Sorocaba.';
+
+var TEXT_EN = '<span style="font-style:italic;">Complaints Department</span> [Departamento de reclamações] (2016 - ) is a collaborative project by the <a href="http://www.guerrillagirls.com/" target="_blank">Guerrilla Girls</a>. Initially created for the Tate Modern in London, a new version has been prepared for the second edition of <a href="http://frestas.sescsp.org.br/" target="_blank">Frestas - Triennial of Arts</a>. Feel free to send in all your complaints, pet peeves and criticisms. Starting on August 12, the work will also be available for access at the Sesc Sorocaba Recreational Center.';
+
 window.onload = function() {
   complaintCount = 0;
   getOldComplaints();
   newComplaintsIntervalHandler = setInterval(getNewComplaints, SERVER_INTERVAL);
 };
+
+function textToEnglish() {
+  document.getElementById('intro-text').innerHTML = TEXT_EN;
+  document.getElementById('language-button-en').classList.remove('language-button-clean');
+  document.getElementById('language-button-en').classList.add('language-button-selected');
+  document.getElementById('language-button-pt').classList.remove('language-button-selected');
+  document.getElementById('language-button-pt').classList.add('language-button-clean');
+}
+function textToPortuguese() {
+  document.getElementById('intro-text').innerHTML = TEXT_PT;
+  document.getElementById('language-button-pt').classList.remove('language-button-clean');
+  document.getElementById('language-button-pt').classList.add('language-button-selected');
+  document.getElementById('language-button-en').classList.remove('language-button-selected');
+  document.getElementById('language-button-en').classList.add('language-button-clean');
+}
 
 window.onscroll = function() {
   var introTextYLocation = document.getElementById('complaint-form').offsetTop - 256;

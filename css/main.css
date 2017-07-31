@@ -13,6 +13,40 @@ body {
   }
 }
 
+.language-transition {
+  opacity: 1;
+  -webkit-transition: opacity 0.15s linear;
+  -o-transition: opacity 0.15s linear;
+  transition: opacity 0.15s linear;
+}
+
+.language-buttons-container {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.language-button {
+  display: inline;
+  cursor: pointer;
+  border-bottom: 4px solid #c83b89;
+  -webkit-transition: border-bottom-color 0.15s linear;
+  -o-transition: border-bottom-color 0.15s linear;
+  transition: border-bottom-color 0.15s linear;
+}
+.language-button-clean:hover {
+  border-bottom-color: #ccc;
+}
+.language-button-clean {
+  border-bottom-color: #fff;
+}
+.language-button-selected {
+  border-bottom-color: #c83b89;
+}
+
+.language-button+.language-button {
+  margin-left: 10px;
+}
+
 .overlay {
   display: none;
   position: fixed;
