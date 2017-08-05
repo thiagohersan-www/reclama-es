@@ -371,10 +371,10 @@ body {
 }
 
 .complaint-text-size-medium {
-  font-size: 2.5em;
+  font-size: 2.7em;
 }
 .complaint-text-size-small {
-  font-size: 2em;
+  font-size: 2.2em;
 }
 
 @media (min-width: 720px) {
