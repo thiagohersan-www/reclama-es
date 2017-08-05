@@ -143,7 +143,7 @@ function createComplaintElement(complaint) {
   complaintP.innerHTML = complaint.complaint;
 
   complaintP.classList.add("complaint-text");
-  complaintP.style['font-size'] = Math.max((80-complaint.complaint.length)/14, 2.3)+"em";
+  complaintP.style['font-size'] = Math.max((80-complaint.complaint.length)/14, 2.0)+"em";
   complaintP.style['font-family'] = fontFamily[complaintCount % 3];
 
   var colorClass = "complaint-container-color-"+(complaintCount % 4);
