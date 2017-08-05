@@ -79,9 +79,18 @@ function showLightbox(complaint, colorClass, complaintFont) {
   highlightElement.classList.add(colorClass);
 
   var highlightTextElement = highlightElement.getElementsByClassName('complaint-text')[0];
+  highlightTextElement.classList = "";
+  highlightTextElement.classList.add('complaint-text');
   highlightTextElement.innerHTML = complaint;
   highlightTextElement.style['font-family'] = complaintFont;
-  highlightTextElement.style['font-size'] = Math.max((100-complaint.length)/14, 3.3)+"em";
+  highlightTextElement.style['font-size'] = '';
+  if(complaint.length < 120) {
+    highlightTextElement.style['font-size'] = Math.max((100-complaint.length)/14, 3.3)+"em";
+  } else if(complaint.length < 180) {
+    highlightTextElement.classList.add('complaint-text-size-medium');
+  } else {
+    highlightTextElement.classList.add('complaint-text-size-small');
+  }
 
   lightBox.style.display = 'block';
   setTimeout(function() {
