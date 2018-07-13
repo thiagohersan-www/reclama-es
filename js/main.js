@@ -26,6 +26,9 @@ function setClicks() {
   document.getElementById('highlight-close-button').onclick = closeLightbox;
   document.getElementById('language-button-pt').onclick = textToPortuguese;
   document.getElementById('language-button-en').onclick = textToEnglish;
+  document.getElementById('complaint-container-highlight').onclick = doNothing;
+  document.getElementById('send-button').onclick = postNewComplaint;
+  document.getElementById('load-button').onclick = getOldComplaints;
 }
 
 function textToEnglish() {

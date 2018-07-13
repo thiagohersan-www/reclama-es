@@ -35,7 +35,7 @@
   </head>
   <body>
     <div id="complaint-lightbox" class="overlay">
-      <div id="complaint-container-highlight" class="complaint-container" onclick="doNothing()">
+      <div id="complaint-container-highlight" class="complaint-container">
         <p class="complaint-text"></p>
         <div id="highlight-close-button" class="close-button">✖</div>
       </div>
@@ -64,13 +64,13 @@
 
     <form id="complaint-form" class="center-form">
       <textarea placeholder="Escreva aqui sua reclamação" maxlength="200" name="complaint" id="input-complaint" class="form-textArea"></textarea><br>
-      <input type="reset" value="enviar" onclick="postNewComplaint()" class="button-style" id="send-button">
+      <input type="reset" value="enviar" class="button-style" id="send-button">
     </form>
     <hr>
     <div id="complaint-list" class="complaint-list-container">
     </div>
     <img id="complaints-loader-spinner" class="loader-spinner" src="imgs/loader.png">
-    <button onclick="getOldComplaints()" class="button-style" id="load-button">mais reclamações</button>
+    <button class="button-style" id="load-button">mais reclamações</button>
 
     <div class="footer">
       <div class="footer-logo-container">
