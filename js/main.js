@@ -15,10 +15,18 @@ var TEXT_PT = '<span style="font-style:italic;">Complaints Department</span> [De
 var TEXT_EN = '<span style="font-style:italic;">Complaints Department</span> [Departamento de reclamações] (2016 - ) is a collaborative project by the <a href="http://www.guerrillagirls.com/" target="_blank">Guerrilla Girls</a>. Initially created for the Tate Modern in London, a new version has been prepared for the second edition of <a href="http://frestas.sescsp.org.br/" target="_blank">Frestas - Triennial of Arts</a>. Feel free to send in all your complaints, pet peeves and criticisms. Starting on August 12, the work will also be available for access at the Sesc Sorocaba Recreational Center.';
 
 window.onload = function() {
+  setClicks();
   complaintCount = 0;
   getOldComplaints();
   newComplaintsIntervalHandler = setInterval(getNewComplaints, SERVER_INTERVAL);
 };
+
+function setClicks() {
+  document.getElementById('complaint-lightbox').onclick = closeLightbox;
+  document.getElementById('highlight-close-button').onclick = closeLightbox;
+  document.getElementById('language-button-pt').onclick = textToPortuguese;
+  document.getElementById('language-button-en').onclick = textToEnglish;
+}
 
 function textToEnglish() {
   document.getElementById('intro-text').innerHTML = TEXT_EN;
@@ -30,6 +38,7 @@ function textToEnglish() {
   document.getElementById('send-button').setAttribute('value', 'send');
   document.getElementById('load-button').innerHTML = 'more complaints';
 }
+
 function textToPortuguese() {
   document.getElementById('intro-text').innerHTML = TEXT_PT;
   document.getElementById('language-button-pt').classList.remove('language-button-clean');
