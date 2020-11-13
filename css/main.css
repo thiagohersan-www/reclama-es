@@ -308,24 +308,6 @@ body {
   padding: 50px 16px;
 }
 
-.loader-spinner {
-  display: block;
-  margin: 0 auto;
-  width: 20%;
-  max-width: 100px;
-  min-width: 64px;
-  -webkit-animation: spin 1.8s linear infinite;
-  animation: spin 1.8s linear infinite;
-}
-@-webkit-keyframes spin {
-  from {-webkit-transform:rotate(0deg);transform:rotate(0deg);}
-  to {-webkit-transform:rotate(360deg);transform:rotate(360deg);}
-}
-@keyframes spin {
-  from {-webkit-transform:rotate(0deg);transform:rotate(0deg);}
-  to {-webkit-transform:rotate(360deg);transform:rotate(360deg);}
-}
-
 .complaint-text {
   display: table-cell;
   margin: 0;

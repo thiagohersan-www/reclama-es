@@ -90,7 +90,3 @@ app.post("/api/complain", function(req, res) {
     });
   }
 });
-
-/* TEST POST:
-curl -H "Content-Type: application/json" -d '{"name":"tgh", "complaint": "afffffff...."}' http://localhost:8080/api/complain
-*/
